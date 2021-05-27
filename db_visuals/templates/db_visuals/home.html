@@ -1,2 +1,31 @@
-<h2>Homepage</h2>
-{{val}}
+{% load static %}
+<!-- {% load crispy_forms_tags %} -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create DB</title>
+    <link rel="stylesheet" href="{% static 'db_visuals/main.css' %}">
+</head>
+<body>
+    <h2>Homepage</h2>
+    {{val}}
+
+    <div>
+        <button type="button"><a href="{% url 'results_view' 'select' %}">SELECT</a></button>
+        
+        <button><a href="{% url 'results_view' 'where' %}" role="button">WHERE</a></button>
+        <button><a href="{% url 'results_view' 'limit' %}" role="button">LIMIT</a></button>
+        <button><a href="{% url 'results_view' 'distinct' %}" role="button">DISTINCT</a></button>
+        <button><a href="{% url 'results_view' 'order' %}" role="button">ORdER BY</a></button>
+        <button><a href="{% url 'results_view' 'gb' %}" role="button">GROUP BY</a></button>
+        <button><a href="{% url 'results_view' 'joins' %}" role="button">JOINS</a></button>
+        <button><a href="{% url 'results_view' 'ag' %}" role="button">AGGREGATE</a></button>
+        <!-- <button><a href="{% url 'results_view' 'gb' %}" role="button">GROUP BY</a></button> -->
+
+    </div>  
+</body>
+</html>
