@@ -21,7 +21,7 @@ Install requirements.txt
 pip3 install requirements.txt
 ```
 ## Screenshots <a name='screenshots'></a>
-<img src="ss/1.png" width=500px>
+<img src="ss/1.png">
 <img src="ss/2.png">
 <img src="ss/3.png">
 <img src="ss/4.png">
