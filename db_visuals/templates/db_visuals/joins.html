@@ -1,0 +1,37 @@
+{% extends 'db_visuals/home.html' %}
+{% block content %}
+    <h4><u>Joins</u></h4>
+    <h4>Orders Table</h4>
+    <table>
+        <thead>
+            <!-- column names -->
+            <tr class="row100 head">
+                <th class='thead'>order_id</th>
+                <th class='thead'>cust_id</th>
+                <th class='thead'>emp_id</th>
+                <th class='thead'>num_goods</th>
+            </tr>
+            <!-- column data -->
+            {% for a in cust_table %}
+                <tbody>
+                    <tr>
+                        <th class="">{{ a.0 }}</th>
+                        <th class="">{{ a.1 }}</th>
+                        <th class="">{{ a.2 }}</th>
+                        <th class="">{{ a.3 }}</th>
+                    </tr>
+                </tbody>
+            {% endfor %}
+        </thead>
+    </table>
+    <br>
+    <form method="POST">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Submit">
+    </form>
+    <h5>Query Result</h5>
+    <p>Query: {{quer}}</p>
+    {{res}}
+{% endblock %}  
+    

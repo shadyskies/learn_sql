@@ -1,5 +1,12 @@
-{% extends 'db_visuals/base.html' %}
+{% extends 'db_visuals/home.html' %}
 {% block content %}
-    {{res}}
-    <h3>where page</h3>
+<form method="post">
+    <h4><u>Where Clause:</u></h4>
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="submit">
+</form>
+<h5>Query result:</h5>
+<p>Query: {{quer}}</p>
+{{res}}
 {% endblock %}

@@ -1,5 +1,12 @@
-{% extends 'db_visuals/base.html' %}
+{% extends 'db_visuals/home.html' %}
 {% block content %}
-    {{res}}
-    <h3>order by page</h3>
+<h4><u>ORDER BY Clause</u></h4>
+<form method="post">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="Submit">
+</form>
+<h5>Query result:</h5>
+<p>Query: {{quer}}</p>
+{{res}}
 {% endblock %}

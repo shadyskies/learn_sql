@@ -1,6 +1,15 @@
-{% extends 'db_visuals/base.html' %}
+{% extends 'db_visuals/home.html' %}
 {% block content %}
+    <h4><u>Select Clause</u></h4>
+    <p>This query is used to return data from a database. It is stored in a table called as the result set.
+         Select a column or * to retrieve all the columns of a table in a database.</p>
+    
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit">
+    </form>
+    <h5>Query result:</h5>
+    <p>Query: {{quer}}</p>
     {{res}}
-    select page
-
-{% endblock %}
+{% endblock content %}

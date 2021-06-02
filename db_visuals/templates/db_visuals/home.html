@@ -1,5 +1,4 @@
 {% load static %}
-<!-- {% load crispy_forms_tags %} -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,25 +6,84 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create DB</title>
-    <link rel="stylesheet" href="{% static 'db_visuals/main.css' %}">
+    <title>Learn SQL</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="{% static 'db_visuals/main.css' %}">
 </head>
 <body>
-    <h2>Homepage</h2>
-    {{val}}
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<a class="navbar-brand mb-0 h1" href="/">Learn SQL</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+	  
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item navbar-light">
+					<a class="nav-link" href="/">Home</a>
+				</li>
+				<li class="nav-item navbar-dark">
+					<a class="nav-link" href="/about">About</a>
+				</li>
+			</ul>
+            <ul class="navbar-nav">
+				<li class="nav-item navbar-light">
+					<a class="nav-link" href="https://github.com/shadyskies/sql_visualizer"><i class="fab fa-github" style="font-size: 1.5em;"></i> Source Code</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
 
-    <div>
-        <button type="button"><a href="{% url 'results_view' 'select' %}">SELECT</a></button>
+    <section class='container'>
+        <div class="left-bar">
+            <button type="button"><a href="{% url 'select' %}">SELECT</a></button>
+            <button><a href="{% url 'where' %}" role="button">WHERE</a></button>
+            <button><a href="{% url 'ob' %}" role="button">ORDER BY</a></button>
+            <button><a href="{% url 'null' %}" role="button">NULL</a></button>
+            <button><a href="{% url 'joins' %}" role="button">JOINS</a></button>
+            <button><a href="{% url 'agg' %}" role="button">AGGREGATE</a></button>
+            <button><a href="{% url 'limit' %}" role="button">LIMIT</a></button>
+            
+        </div> 
         
-        <button><a href="{% url 'results_view' 'where' %}" role="button">WHERE</a></button>
-        <button><a href="{% url 'results_view' 'limit' %}" role="button">LIMIT</a></button>
-        <button><a href="{% url 'results_view' 'distinct' %}" role="button">DISTINCT</a></button>
-        <button><a href="{% url 'results_view' 'order' %}" role="button">ORdER BY</a></button>
-        <button><a href="{% url 'results_view' 'gb' %}" role="button">GROUP BY</a></button>
-        <button><a href="{% url 'results_view' 'joins' %}" role="button">JOINS</a></button>
-        <button><a href="{% url 'results_view' 'ag' %}" role="button">AGGREGATE</a></button>
-        <!-- <button><a href="{% url 'results_view' 'gb' %}" role="button">GROUP BY</a></button> -->
+        <div class="main">
+            <h3><u><strong>EMPLOYEE Database</strong></u></h3>
+            <div class="db">
+                <table>
+                    <thead>
+                        <!-- column names -->
+                        <tr class="row100 head">
+                            <th class='thead'>name</th>
+                            <th class='thead'>yaarsofexp</th>
+                            <th class='thead'>age</th>
+                            <th class='thead'>salary</th>
+                            <th class='thead'>emp_id</th>
+                            <!-- <th class='thead'>Status</th> -->
+                        </tr>
+                        <!-- column data -->
+                        {% for a in val %}
+                            <tbody>
+                                <tr>
+                                    <th class="">{{ a.0 }}</th>
+                                    <th class="">{{ a.1 }}</th>
+                                    <th class="">{{ a.2 }}</th>
+                                    <th class="">{{ a.3 }}</th>
+                                    <th class="">{{ a.4 }}</th>
+                                </tr>
+                            </tbody>
+                        {% endfor %}
+                    </thead>
+                </table>
+            </div>
 
-    </div>  
+            <div class="quer" style="padding: 10px;">
+                {% block content %}
+                {% endblock content %}
+            </div>
+        </div> 
+        
+
+    </section>
 </body>
 </html>

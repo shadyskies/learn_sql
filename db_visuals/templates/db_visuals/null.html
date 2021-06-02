@@ -1,9 +1,7 @@
 {% extends 'db_visuals/home.html' %}
 {% block content %}
-    <h4><u>LIMIT QUERY</u></h4>
-    {{cust_table}}
-    <br>
-    <form method="POST">
+    <h4><u>NULL Clause</u></h4>
+    <form method="post">
         {% csrf_token %}
         {{form}}
         <input type="submit" value="Submit">
@@ -11,5 +9,4 @@
     <h5>Query result:</h5>
     <p>Query: {{quer}}</p>
     {{res}}
-{% endblock %}  
-    
+{% endblock %}

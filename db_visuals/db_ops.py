@@ -13,4 +13,4 @@ def connect(database):
 def query_db(engine, query):
     cur = engine.raw_connection().cursor()
     cur.execute(query)
-    return cur.fetchall()
+    return list(cur.fetchall())

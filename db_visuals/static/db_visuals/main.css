@@ -1,11 +1,51 @@
 input{
-    width: 150px;
+  width: 150px;
 }
 
-body{
-    background-color: rgb(208, 222, 247);
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-color: #a49cee;
+}
+
+
+.container{
+width:100%;
+height: 100%;
+float:left
+}
+
+.left-bar{
+padding-top: 10px;
+width: 14%;
+float: left;
+display: inline-grid;
+
 }
 
 button{
-    width: 168px;
+padding: 3px;
+padding-inline: 3px;
+}
+/* Main section */
+.main, .quer{
+box-sizing: border-box;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.main .title, .quer h3 {
+padding: 2px;
+font-size: 2.3rem;
+font-weight: 300;
+}
+
+table, th, tr{
+  border: 1px solid black;
+}
+
+strong {
+  color: #1b4e4c;
 }

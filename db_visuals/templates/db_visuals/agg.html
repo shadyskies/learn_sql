@@ -1,0 +1,13 @@
+{% extends 'db_visuals/home.html' %}
+{% block content %}
+    <h4><u>Aggregate functions</u></h4>
+    <form method="post">
+        {% csrf_token %}
+        <p>Fill any one of the following:</p>
+        {{form}}
+        <input type="submit" value="Submit">
+    </form>
+    <h5>Query result:</h5>
+    <p>Query: {{quer}}</p>
+    {{res}}
+{% endblock %}
